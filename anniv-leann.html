@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYEUX ANNIVERSAIRE LEANN 🎂</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&display=swap');
+
+        :root {
+            --gold-bg: #fffdf0; /* Fond Champagne très clair */
+            --primary-gold: #d4af37; /* Or riche */
+            --light-gold: #f5eac2; /* Or clair pour contrastes */
+            --dark-gold: #8b6b10; /* Or sombre pour texte */
+            --text-main: #333;
+        }
+
+        body {
+            background-color: var(--gold-bg);
+            background-image: 
+                linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(212, 175, 55, 0.1) 100%);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 60px 45px 45px 45px;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(139, 107, 16, 0.15);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: cardEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid var(--light-gold);
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: scale(0.95) translateY(40px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* --- PHOTO DE LEANN --- */
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: -115px auto 25px;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(139, 107, 16, 0.2);
+            object-fit: cover;
+            background: var(--light-gold);
+            display: block;
+        }
+
+        h1 { 
+            color: #1a1a1a; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem; 
+            margin: 10px 0;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle { 
+            color: var(--primary-gold); 
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            margin-bottom: 35px; 
+            display: block;
+        }
+        
+        .roast-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .roast-section::after {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .roast-item { 
+            margin-bottom: 15px; 
+            font-size: 0.95rem; 
+            line-height: 1.5;
+            color: #444;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .roast-item::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-size: 1rem;
+        }
+        
+        .roast-item:last-child { margin-bottom: 0; }
+
+        .reveal-btn {
+            background: linear-gradient(135deg, var(--dark-gold), var(--primary-gold));
+            color: white;
+            border: none;
+            padding: 22px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(139, 107, 16, 0.3);
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .reveal-btn:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 18px 35px rgba(139, 107, 16, 0.4);
+            filter: brightness(1.1);
+        }
+
+        #reveal-content {
+            display: none;
+            margin-top: 35px;
+            padding: 30px 25px;
+            border-radius: 25px;
+            background: #fffdf5;
+            border: 2px solid var(--light-gold);
+            animation: revealAnim 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            position: relative;
+        }
+
+        @keyframes revealAnim {
+            from { opacity: 0; scale: 0.9; transform: translateY(20px); }
+            to { opacity: 1; scale: 1; transform: translateY(0); }
+        }
+
+        .paris-title { 
+            font-size: 2.8rem; 
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #b8860b, var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0; 
+            font-weight: 900;
+            filter: drop-shadow(0 2px 5px rgba(184, 134, 11, 0.2));
+        }
+
+        .signature { 
+            margin-top: 45px; 
+            font-size: 0.85rem;
+            color: #888; 
+            font-style: italic;
+        }
+        
+        .signature span { 
+            color: var(--dark-gold); 
+            font-weight: bold;
+            display: block;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            font-style: normal;
+        }
+
+        .warning-text {
+            font-size: 0.8rem; 
+            color: #777; 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="IMG_3547.JPG" alt="Leann" class="profile-pic">
+
+    <span class="subtitle">VIP Invitation</span>
+    <h1>Happy Anniversary Leann ! 🎂</h1>
+
+    <div class="roast-section">
+        <div class="roast-item">Hugo et moi (Sam), nous te souhaitons un très bon anniversaire en espérant que cette année sera remplie de réussite pour toi !</div>
+        <div class="roast-item">On est officiellement les meilleurs potes de ta vie, cherche pas, tu ne trouveras personne d'autre comme nous hihihihi.</div>
+    </div>
+
+    <button class="reveal-btn" id="btn" onclick="laTotale()">Ouvrir ton cadeau</button>
+
+    <div id="reveal-content">
+        <p style="margin: 0; color: #888; font-size: 0.9rem;">Bon, comme on t'aime (un peu) et qu'on a pitié de ton régime à base de pâtes éco+...</p>
+        <div class="paris-title">PANAME !</div>
+        <p style="font-size: 1.15rem; color: #333; margin: 10px 0; font-weight: 600;">On t'offre un <strong>gros resto</strong> entre nous.</p>
+        <div class="warning-text">
+            ⚠️ Prépare une tenue potable, sinon tu vas te faire recaler par les serveurs 👀
+        </div>
+    </div>
+
+    <p class="signature">Tes tuteurs légaux : <span>Sam & Hugo</span></p>
+</div>
+
+<script>
+    function laTotale() {
+        document.getElementById('btn').style.display = 'none';
+        document.getElementById('reveal-content').style.display = 'block';
+
+        const end = Date.now() + 3000;
+        // Confettis en Or Riche, Champagne, Or Blanc et Jaune Scintillant
+        const colors = ['#d4af37', '#f5eac2', '#ffffff', '#ffdf00', '#8b6b10'];
+
+        (function frame() {
+            confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 60,
+                origin: { x: 0, y: 0.7 },
+                colors: colors
+            });
+            confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 60,
+                origin: { x: 1, y: 0.7 },
+                colors: colors
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: colors
+        });
+    }
+</script>
+
+</body>
+</html>
